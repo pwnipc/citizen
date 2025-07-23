@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %} Blog {% endblock %}
+
+{% block content %}
+
+{% if blogs %}
+
+ {% for blog in blogs %}
+ <img src="{{ blog.image.url }}" alt="{{ blog.title }}" class="w-full h-64 object-cover mb-4">
+    <h2>{{ blog.title|upper }}</h2>
+    <p>{{ blog.content }}</p>
+    <p><em>Posted on: {{ blog.created_at }}</em></p>
+    <hr>
+ {% endfor %}
+
+ {% else %}
+    <p>No blogs available.</p>
+
+{% endif %}
+
+
+
+
+
+{% endblock %}

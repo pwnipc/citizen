@@ -1,0 +1,31 @@
+{% extends 'base.html'%}
+{% block title %}Add Blog Post{% endblock %}
+
+{% block content %}
+<form method="post" class="max-w-lg mx-auto mt-8" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="mb-4">
+        <label for="{{ form.author.id_for_label }}" >Author: </label>
+        {{ form.author }}
+    </div>
+
+    <div class="mb-4">
+        <label for="{{ form.image.id_for_label }}" >Image: </label>
+        {{ form.image }}
+    </div>
+
+    <div class="mb-4">
+        <label for="{{ form.title.id_for_label }}" >Title: </label>
+        {{ form.title }}
+    </div>
+
+    <div class="mb-4">
+        <label for="{{ form.body.id_for_label }}" >Body: </label>
+        {{ form.body }}
+    </div>
+
+    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Add Blog Post</button>
+
+</form>
+
+{% endblock %}
